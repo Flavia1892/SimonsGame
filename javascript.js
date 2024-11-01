@@ -98,6 +98,8 @@ function SimonGameColors(){
 $('rect').on("click",function(){
     const classAttribute = $(this).attr('class');
     checkColorClick.push(classAttribute);
+
+    
     checkClickedColor(checkColorClick);
 })
 
