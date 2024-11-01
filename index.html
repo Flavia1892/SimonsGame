@@ -23,26 +23,32 @@
 
     <p class="gameStart">Press any key to start</p>
 
+    <audio id="sound" src="./sounds/green.mp3"></audio>
+    <audio id="sound2" src="./sounds/red.mp3"></audio>
+    <audio id="sound3" src="./sounds/yellow.mp3"></audio>
+    <audio id="sound4" src="./sounds/blue.mp3"></audio>
+    <audio id="soundWrong" src="./sounds/wrong.mp3"></audio>
+
     <div class="container" id="game">
           <div class="row row-cols-2">
           <div class="col" id="game-col">
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="200" rx="20" ry="20" fill="green" stroke="black" stroke-width="4"/>
+                <rect width="200" height="200" rx="20" ry="20" fill="green" stroke="black" stroke-width="4" class="green"/>
               </svg>
           </div>
           <div class="col"  id="game-col">
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="200" rx="20" ry="20" fill="red" stroke="black" stroke-width="4"/>
+                <rect width="200" height="200" rx="20" ry="20" fill="red" stroke="black" stroke-width="4" class="red"/>
               </svg>
           </div>
           <div class="col"  id="game-col">
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="200" rx="20" ry="20" fill="yellow" stroke="black" stroke-width="4"/>
+                <rect width="200" height="200" rx="20" ry="20" fill="yellow" stroke="black" stroke-width="4" class="yellow"/>
               </svg>
           </div>
           <div class="col"  id="game-col">
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="200" rx="20" ry="20" fill="blue" stroke="black" stroke-width="4"/>
+                <rect width="200" height="200" rx="20" ry="20" fill="blue" stroke="black" stroke-width="4" class="blue"/>
               </svg>
           </div>
         </div>
