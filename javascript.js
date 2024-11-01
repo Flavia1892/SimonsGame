@@ -2,6 +2,11 @@
 let colorsByNumber=['green','red','yellow','blue'];
 let levelnumber=1;
 
+let colorArrayOfGenerated=[];
+let checkColorClick=[];
+
+let proceedToNextlevel=false;
+
 
 //Function for the flashing of the game title
 let intervalId;
@@ -24,6 +29,7 @@ $(document).ready(function() {
         $('.gameStart').text("Level 1");
 
          SimonGameColors();
+           
        
     });
 });
@@ -38,7 +44,8 @@ $('.title').on("mouseover",()=>{
 function SimonGameColors(){
     let randomNumber = Math.floor(Math.random() * 4)
     let className=colorsByNumber[randomNumber];
-    colorArray.push(className);
+    colorArrayOfGenerated.push(String(className));
+    checkColorClick=[];
 
     $(`.${className}`).fadeOut(300).fadeIn(300);
     switch(randomNumber){
@@ -65,13 +72,11 @@ function SimonGameColors(){
 
 
     }
-    
-      
+        
 
 }
 
-let colorArray=[];
-let checkColorClick=[];
+
 
 $('rect').on("click",function(){
     const classAttribute = $(this).attr('class');
@@ -80,11 +85,15 @@ $('rect').on("click",function(){
 })
 
 function checkClickedColor(colorArr){
-  for(let key in  colorArray)
-    if(colorArray[key]!=colorArr[key])
+    console.log(colorArr);
+    console.log("this is the generator:"+colorArrayOfGenerated);
+  for(let key in  colorArr)
+    if(colorArrayOfGenerated[key]!=colorArr[key])
         {
             soundWrong.currentTime = 0; // Rewind to the start
             soundWrong.play();
+
+            proceedToNextlevel=false;
 
             $(".gameStart").text("You got it wrong!");
             $('body').css("background-image","linear-gradient(to bottom,red,red)");
@@ -101,18 +110,20 @@ function checkClickedColor(colorArr){
         return;
         }
 
-levelnumber++;
-console.log(levelnumber);
+
+proceedToNextlevel=true;
+
+if(proceedToNextlevel&&colorArrayOfGenerated.length===colorArr.length) {
+    levelnumber++;
+    SimonGameColors();
+    $('.gameStart').text(`Level ${levelnumber}`);
+
+}
+
  
 }
 
 
-//Play Simon's Game
-while(levelnumber>0){
-    $('.gameStart').text(`Level${levelnumber}`);
 
-    SimonGameColors();
-    checkClickedColor(checkColorClick);
-}
 
 
