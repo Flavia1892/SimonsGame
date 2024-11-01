@@ -1,5 +1,6 @@
 
 let colorsByNumber=['green','red','yellow','blue'];
+let levelnumber=1;
 
 
 //Function for the flashing of the game title
@@ -22,12 +23,7 @@ $(document).ready(function() {
 
         $('.gameStart').text("Level 1");
 
-        // $(".green").fadeOut(300).fadeIn(300);
-       
-        // sound1.currentTime = 0; // Rewind to the start
-        // sound0.play(); // 
-
-        SimonGameColors();
+         SimonGameColors();
        
     });
 });
@@ -70,8 +66,7 @@ function SimonGameColors(){
 
     }
     
-       
-     
+      
 
 }
 
@@ -97,13 +92,27 @@ function checkClickedColor(colorArr){
                 $('body').css("background-image","linear-gradient(to bottom,rgb(6, 6, 145),rgb(9, 9, 189),blue)");
             },500);
 
+            levelnumber=1;
+
             setTimeout(()=>{
             location.reload();
-        },2000);
+        },1700);
+
+        return;
         }
 
+levelnumber++;
+console.log(levelnumber);
  
 }
 
+
+//Play Simon's Game
+while(levelnumber>0){
+    $('.gameStart').text(`Level${levelnumber}`);
+
+    SimonGameColors();
+    checkClickedColor(checkColorClick);
+}
 
 
