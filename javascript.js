@@ -27,6 +27,7 @@ $(document).ready(function() {
         $('.gameStart').stop(true, true).fadeIn(); // Ensure text is visible
 
         $('.gameStart').text("Level 1");
+        $('.startingPoint').hide();
 
          SimonGameColors();
                   
@@ -40,7 +41,7 @@ $(document).ready(function() {
             $('.gameStart').text("Level 1");
             setTimeout(()=>{
                 $('.startingPoint').hide();
-            },500);
+            },300);
     
              SimonGameColors();
         })
