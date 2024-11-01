@@ -1,11 +1,13 @@
 
+let colorsByNumber=['green','red','yellow','blue'];
+
 
 //Function for the flashing of the game title
 let intervalId;
-let sound1=$('#sound')[0];
-let sound2=$('#sound2')[0];
-let sound3=$('#sound3')[0];
-let sound4=$('#sound4')[0];
+let sound0=$('#sound')[0];
+let sound1=$('#sound2')[0];
+let sound2=$('#sound3')[0];
+let sound3=$('#sound4')[0];
 let soundWrong=$('#soundWrong')[0];
 
 
@@ -20,10 +22,12 @@ $(document).ready(function() {
 
         $('.gameStart').text("Level 1");
 
-        $(".green").fadeOut(300).fadeIn(300);
+        // $(".green").fadeOut(300).fadeIn(300);
        
-        sound1.currentTime = 0; // Rewind to the start
-        sound1.play(); // 
+        // sound1.currentTime = 0; // Rewind to the start
+        // sound0.play(); // 
+
+        SimonGameColors();
        
     });
 });
@@ -35,8 +39,43 @@ $('.title').on("mouseover",()=>{
     },2000)
 })
 
+function SimonGameColors(){
+    let randomNumber = Math.floor(Math.random() * 4)
+    let className=colorsByNumber[randomNumber];
+    colorArray.push(className);
 
-let colorArray=['green'];
+    $(`.${className}`).fadeOut(300).fadeIn(300);
+    switch(randomNumber){
+
+        case 0: 
+        sound0.currentTime = 0; // Rewind to the start
+         sound0.play(); 
+         break;
+
+         case 1: 
+         sound1.currentTime = 0; // Rewind to the start
+          sound1.play(); 
+          break;
+
+          case 2: 
+          sound2.currentTime = 0; // Rewind to the start
+           sound2.play(); 
+           break;
+
+           case 3: 
+           sound3.currentTime = 0; // Rewind to the start
+            sound3.play(); 
+            break;
+
+
+    }
+    
+       
+     
+
+}
+
+let colorArray=[];
 let checkColorClick=[];
 
 $('rect').on("click",function(){
@@ -49,16 +88,18 @@ function checkClickedColor(colorArr){
   for(let key in  colorArray)
     if(colorArray[key]!=colorArr[key])
         {
-
             soundWrong.currentTime = 0; // Rewind to the start
             soundWrong.play();
-            $('body').css('background-color', 'red'); // Set flash color
 
-            // Use a timeout to revert the color after a short period
-            setTimeout(function() {
-                $('body').css('background-image',"linear-gradient(to bottom,rgb(6, 6, 145),rgb(9, 9, 189),blue)"); // Reset color
-            }, 500); // Flash duration
-           
+            $(".gameStart").text("You got it wrong!");
+            $('body').css("background-image","linear-gradient(to bottom,red,red)");
+            setTimeout(()=>{
+                $('body').css("background-image","linear-gradient(to bottom,rgb(6, 6, 145),rgb(9, 9, 189),blue)");
+            },500);
+
+            setTimeout(()=>{
+            location.reload();
+        },2000);
         }
 
  
