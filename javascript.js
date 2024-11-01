@@ -45,6 +45,8 @@ function SimonGameColors(){
     let randomNumber = Math.floor(Math.random() * 4)
     let className=colorsByNumber[randomNumber];
     colorArrayOfGenerated.push(String(className));
+
+    localStorage.setItem('myLastGeneratingArrayOfColors', colorArrayOfGenerated);
     checkColorClick=[];
 
     $(`.${className}`).fadeOut(300).fadeIn(300);
@@ -123,6 +125,15 @@ if(proceedToNextlevel&&colorArrayOfGenerated.length===colorArr.length) {
  
 }
 
+
+$('.rules').on("click",function (){
+    $('#ruleBox').toggle();
+})
+
+$('.savedData').on('click',()=>{
+    if(levelnumber<2)
+    $('.showSaved').toggle().text("Your last string of generated colors was:"+localStorage.getItem('myLastGeneratingArrayOfColors'));
+})
 
 
 

@@ -30,10 +30,11 @@
     <audio id="soundWrong" src="./sounds/wrong.mp3"></audio>
 
     <div class="container" id="game">
-          <div class="row row-cols-2">
+
+             <div class="row row-cols-2">
           <div class="col" id="game-col">
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="200" rx="20" ry="20" fill="green" stroke="black" stroke-width="4" class="green"/>
+                <rect width="200" height="200" rx="20" ry="20" fill="rgb(15, 120, 34)" stroke="black" stroke-width="4" class="green"/>
               </svg>
           </div>
           <div class="col"  id="game-col">
@@ -52,6 +53,19 @@
               </svg>
           </div>
         </div>
+    </div>
+
+    <div class="ruleButton">
+    <button type="button" class="rules">Rules</button></div>
+    <button type="button" class="savedData">Show my last game colors</button>
+    
+    <div id="ruleBox"><b>Here are the rules:</b><br>
+    You must remember the order of the flickering colors and press them in the exact <b>same order</b> 
+    </div>
+
+    <div class="showSaved">Your last string of generated colors was:</div>
+    
+
       </div>
 
 

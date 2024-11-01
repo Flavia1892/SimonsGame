@@ -33,7 +33,36 @@ padding-bottom: 40px;
     font-size: 70px;
 }
 
-
+#ruleBox{
+    display: none;
+    font-size: 20px;
+    border:1px solid black;
+    text-align: center;
+    background-color: antiquewhite;
+    padding-top: 30px;
+    padding-bottom: 30px;
+        
+}
+.ruleButton{
+    text-align: center;
+    border-top: 1px solid black;
+}
+.rules{
+    background-color: rgb(206, 206, 244);
+    font-size: 20px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.showSaved{
+    display: none;
+    font-size: 25px;
+    background-color: antiquewhite;
+}
 
 @media (max-width: 600px) {
     svg {
@@ -48,4 +77,6 @@ padding-bottom: 40px;
     .gameStart{
         font-size: 35px;
     }
+
+
 }
