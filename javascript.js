@@ -29,9 +29,23 @@ $(document).ready(function() {
         $('.gameStart').text("Level 1");
 
          SimonGameColors();
-           
-       
+                  
     });
+
+   $('.startingPoint').show();
+     $('.startButton').on("click",function (){
+            clearInterval(intervalId); // Stop the flashing
+            $('.gameStart').stop(true, true).fadeIn(); // Ensure text is visible
+    
+            $('.gameStart').text("Level 1");
+            setTimeout(()=>{
+                $('.startingPoint').hide();
+            },500);
+    
+             SimonGameColors();
+        })
+   
+    
 });
 
 $('.title').on("mouseover",()=>{

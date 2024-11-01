@@ -64,6 +64,14 @@ padding-bottom: 40px;
     background-color: antiquewhite;
 }
 
+.startButton{
+     background-color: transparent;
+}
+.startingPoint{
+    text-align: center;
+    display: none;
+}
+
 @media (max-width: 600px) {
     svg {
         width: 100px;  /* Change size on smaller screens */
